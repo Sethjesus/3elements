@@ -7,9 +7,19 @@
     <style>
         body {
             background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
         }
         table {
             width: 80%;
+            margin: 20px auto;
             border-collapse: collapse;
         }
         th, td {
@@ -30,10 +40,35 @@
         .content-col ul {
             padding-left: 20px; /* 设置列表内边距 */
         }
+        footer {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ffffff;
+            margin-top: 30px;
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #0056b3; /* 更深的藍色 */
+        }
     </style>
 </head>
 <body>
-    <H1>低碳化/減碳</H1>
+    <h1>低碳化/減碳</h1>
     <div class="container mt-5">
         <table id="data-table">
             <thead>
@@ -74,28 +109,23 @@
                         </ul>
                     </td>
                 </tr>
-
                 <tr>
                     <td>2.4 應用方案EDM</td>
                     <td>
                         <ul>
                             A.製造業/學校/飯店
-                           
                         </ul>
                     </td>
                 </tr>
-
                 <tr>
                     <td>2.5 低碳化管理工具/客製化整合</td>
                     <td>
                         <ul>
-                            A. EMS電力能耗/水量/空氣品質數據管理平台服務
+                            A. EMS電力能耗/水量/空氣品質數據管理平台服務<br>
                             B. 大數據整合平台客製化
-                           
                         </ul>
                     </td>
                 </tr>
-
                 <tr>
                     <td>2.6 政府低碳化補助申請</td>
                     <td>
@@ -107,25 +137,21 @@
                         </ul>
                     </td>
                 </tr>
-
                 <tr>
                     <td>2.7 合作夥伴</td>
                     <td>
                         <ul>
                             A. 低碳化方案合作夥伴<br>
-                            B. 其他周邊設備服務(P-Trade)</li>
-                            
+                            B. 其他周邊設備服務(P-Trade)
                         </ul>
                     </td>
                 </tr>
-
-
-
-
-
-                <!-- 更多行... -->
             </tbody>
         </table>
     </div>
+    <footer>
+        <a href="https://sethjesus.github.io/Maincarbon/Maincarbon.html" class="back-button">回首頁</a>
+        © 2024 由景沛低碳管理方案團隊製作
+    </footer>
 </body>
 </html>
