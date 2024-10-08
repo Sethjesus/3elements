@@ -24,7 +24,7 @@
             font-weight: bold; /* 加粗字體 */
             text-shadow: 4px 4px 6px rgba(0, 0, 0, 1); /* 添加陰影讓文字更清晰 */
             line-height: 1.2; /* 行距調整 */
-           }
+        }
 
         table {
             width: 80%;
@@ -40,12 +40,18 @@
         th {
             background-color: #007bff;
             color: white;
+            font-size: 1.5em; /* 項目欄字體增大 */
+        }
+        td.item-col {
+            font-size: 1.4em; /* 左邊項目字體更大 */
+            width: 30%;
+        }
+        td.content-col {
+            font-size: 1em; /* 右邊內容字體較小 */
+            width: 70%;
         }
         tr:hover {
             background-color: #ffa500; /* 橘色背景 */
-        }
-        .item-col {
-            width: 20%; /* 控制項目欄的寬度 */
         }
         .content-col ul {
             padding-left: 20px; /* 设置列表内边距 */
@@ -89,8 +95,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>2.1 陽光空氣水減碳方案</td>
-                    <td>
+                    <td class="item-col">2.1 陽光空氣水減碳方案</td>
+                    <td class="content-col">
                         <ul>
                             <li><a href="https://sethjesus.github.io/Wireless/Wireless.html">A. 無線能耗足跡管理</a></li>
                             <li><a href="https://sethjesus.github.io/Wired/Wired.html">B. 有線能耗足跡管理</a></li>
@@ -102,16 +108,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>2.2 減碳效益30% (3年)</td>
-                    <td>
+                    <td class="item-col">2.2 減碳效益30% (3年)</td>
+                    <td class="content-col">
                         <ul>
                             <li><a href="https://example.com">A. 政策文件</a></li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
-                    <td>2.3 減碳方法 - 智慧化應用</td>
-                    <td>
+                    <td class="item-col">2.3 減碳方法 - 智慧化應用</td>
+                    <td class="content-col">
                         <ul>
                             A. EMS<br>
                             B. AI大數據應用<br>
@@ -120,16 +126,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>2.4 應用方案EDM</td>
-                    <td>
+                    <td class="item-col">2.4 應用方案EDM</td>
+                    <td class="content-col">
                         <ul>
                             A.製造業/學校/飯店
                         </ul>
                     </td>
                 </tr>
                 <tr>
-                    <td>2.5 低碳化管理工具/客製化整合</td>
-                    <td>
+                    <td class="item-col">2.5 低碳化管理工具/客製化整合</td>
+                    <td class="content-col">
                         <ul>
                             A. EMS電力能耗/水量/空氣品質數據管理平台服務<br>
                             B. 大數據整合平台客製化
@@ -137,8 +143,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>2.6 政府低碳化補助申請</td>
-                    <td>
+                    <td class="item-col">2.6 政府低碳化補助申請</td>
+                    <td class="content-col">
                         <ul>
                             A. 產發署低碳化補助<br>
                             B. 商業發展署商業服務業智慧減碳補助<br>
@@ -148,8 +154,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>2.7 合作夥伴</td>
-                    <td>
+                    <td class="item-col">2.7 合作夥伴</td>
+                    <td class="content-col">
                         <ul>
                             A. 低碳化方案合作夥伴<br>
                             <li><a href="https://sethjesus.github.io/Ptrade/Ptrade.html">B. 其他周邊設備服務(P-Trade)</a></li>
