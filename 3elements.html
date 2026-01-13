@@ -6,6 +6,12 @@
 <title>低碳化／減碳方案</title>
 
 <style>
+/* ===== 全站主色定義（統一藍） ===== */
+:root{
+  --home-main: #0b6bff;
+  --home-sub:  #00c6ff;
+}
+
 /* ===== 基本設定 ===== */
 html, body {
     height: 100%;
@@ -20,7 +26,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     color: #0f172a;
-    padding-bottom: 120px; /* 避免浮動按鈕遮內容 */
+    padding-bottom: 120px;
 }
 main { flex: 1; }
 
@@ -35,8 +41,8 @@ main { flex: 1; }
     filter: drop-shadow(0 6px 16px rgba(0,0,0,.35));
 }
 @keyframes breathe {
-    0%   { transform: scale(1); opacity: .95; }
-    50%  { transform: scale(1.08); opacity: 1; }
+    0% { transform: scale(1); opacity: .95; }
+    50% { transform: scale(1.08); opacity: 1; }
     100% { transform: scale(1); opacity: .95; }
 }
 @media (max-width: 768px) {
@@ -59,7 +65,7 @@ h1 {
     margin: 0 auto 30px;
 }
 
-/* ===== 表格（桌機） ===== */
+/* ===== 表格 ===== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -92,7 +98,7 @@ td.content-col {
     line-height: 1.9;
 }
 
-/* ===== 內容清單 ===== */
+/* ===== 清單 ===== */
 .content-col ul {
     margin: 0;
     padding: 0;
@@ -130,37 +136,20 @@ a:hover { text-decoration: underline; }
     color: #166534;
 }
 
-/* ===== 手機卡片 ===== */
-.mobile-card { display: none; }
-
-/* ===== 手機版切換卡片 ===== */
+/* ===== 手機版 ===== */
 @media (max-width: 768px) {
     table, thead, tbody, tr, th, td {
         display: block;
         width: 100%;
     }
     thead { display: none; }
-
     tr {
         margin-bottom: 18px;
         background: rgba(255,255,255,.9);
         border-radius: 18px;
         box-shadow: 0 14px 30px rgba(0,0,0,.18);
     }
-
     td.item-col { display: none; }
-    td.content-col { padding: 0; }
-
-    .desktop-only { display: none; }
-    .mobile-card {
-        display: block;
-        padding: 16px;
-    }
-    .card-title {
-        font-size: 18px;
-        font-weight: 800;
-        margin-bottom: 10px;
-    }
 }
 
 /* ===== Footer ===== */
@@ -171,7 +160,7 @@ footer {
     color: #fff;
 }
 
-/* 🌱 浮動回首頁（減碳偏綠） */
+/* ===== 統一藍色浮動回首頁 ===== */
 .float-home-btn{
     position: fixed;
     right: 22px;
@@ -187,37 +176,30 @@ footer {
     justify-content: center;
     gap: 4px;
 
-    color: #ecfdf5;
+    color: #fff;
     text-decoration: none;
     font-weight: 700;
 
-    background: linear-gradient(135deg, #16a34a, #22c55e);
-    box-shadow: 0 14px 30px rgba(22,163,74,.45);
+    background: linear-gradient(135deg, var(--home-main), var(--home-sub));
+    box-shadow: 0 14px 30px rgba(11,107,255,.45);
 
     z-index: 9999;
-    transition: transform .2s ease,
-                box-shadow .2s ease,
-                filter .2s ease;
-}
-.float-home-btn .icon{
-    font-size: 24px;
-    line-height: 1;
-}
-.float-home-btn .label{
-    font-size: 12px;
-    line-height: 1;
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
 .float-home-btn:hover{
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(22,163,74,.55);
-    filter: brightness(1.08);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(11,107,255,.55);
+    filter: brightness(1.06);
 }
-@media (max-width: 768px){
+.float-home-btn .icon{ font-size:24px }
+.float-home-btn .label{ font-size:12px }
+
+@media (max-width:768px){
     .float-home-btn{
-        width: 56px;
-        height: 64px;
-        right: 16px;
-        bottom: 16px;
+        width:56px;
+        height:64px;
+        right:16px;
+        bottom:16px;
     }
 }
 </style>
@@ -239,7 +221,6 @@ footer {
 </thead>
 
 <tbody>
-
 <tr>
 <td class="item-col">2.1 陽光空氣水減碳方案</td>
 <td class="content-col">
@@ -297,10 +278,10 @@ EMS 電力／水量／空氣品質管理平台
 <td class="item-col">2.6 政府低碳化補助</td>
 <td class="content-col">
 <ul>
-<li class="secondary">產發署低碳化補助</li>
-<li class="secondary">商業發展署智慧減碳補助</li>
-<li class="secondary">環境部低碳轉型專案</li>
-<li class="secondary">教育部氣候友善校園</li>
+<li class="secondary"><span class="label">A.發署低碳化補助</li>
+<li class="secondary"><span class="label">B.商業發展署智慧減碳補助</li>
+<li class="secondary"><span class="label">C.環境部低碳轉型專案</li>
+<li class="secondary"><span class="label">D.教育部氣候友善校園</li>
 </ul>
 </td>
 </tr>
@@ -309,21 +290,19 @@ EMS 電力／水量／空氣品質管理平台
 <td class="item-col">2.7 合作夥伴</td>
 <td class="content-col">
 <ul>
-<li class="secondary">低碳化方案合作夥伴</li>
+<li class="secondary"><span class="label">A.低碳化方案合作夥伴</li>
 <li class="primary">
-<a href="https://sethjesus.github.io/Ptrade/Ptrade.html">其他周邊設備服務（P-Trade）</a>
+<a href="https://sethjesus.github.io/Ptrade/Ptrade.html"><span class="label">B.其他周邊設備服務（P-Trade）</a>
 </li>
-<li class="secondary">客製化系統整合服務</li>
+<li class="secondary"><span class="label">C.客製化系統整合服務</li>
 </ul>
 </td>
 </tr>
-
 </tbody>
 </table>
 </div>
 </main>
 
-<!-- 🏠 浮動回首頁 -->
 <a href="https://jpesg.netlify.app/" class="float-home-btn" aria-label="回首頁">
   <span class="icon">🏠</span>
   <span class="label">回首頁</span>
