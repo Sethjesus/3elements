@@ -1,200 +1,337 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>減碳方案表格</title>
-    <style>
-        body {
-            background-image: url('https://github.com/Sethjesus/Photo/blob/main/sky1.jpg?raw=true'); /* 替換為你的圖片URL */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-            color: #b3ff00;
-            font-size: 56px; /* 增加字體大小 */
-            font-weight: bold; /* 加粗字體 */
-            text-shadow: 4px 4px 6px rgba(0, 0, 0, 1); /* 添加陰影讓文字更清晰 */
-            line-height: 1.2; /* 行距調整 */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>低碳化／減碳方案</title>
 
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.8); /* 設置表格背景為半透明，讓背景圖透出 */
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #007bff;
-            color: white;
-            font-size: 1.5em; /* 項目欄字體增大 */
-        }
-        .highlight {
-            font-size: 22px; /* 項目字體大小 */
-            color: #0f0202; /* 使用紅色突出顯示 */
-            font-weight: bold; /* 字體加粗 */
-        }
-        td.item-col {
-            font-size: 1.4em; /* 左邊項目字體更大 */
-            width: 30%;
-        }
-        td.content-col {
-            font-size: 1em; /* 右邊內容字體較小 */
-            width: 70%;
-        }
-        tr:hover {
-            background-color: #ffa500; /* 橘色背景 */
-        }
-        .content-col ul {
-            padding-left: 20px; /* 设置列表内边距 */
-        }
-        footer {
-            position: relative;
-            text-align: center;
-            padding: 20px;
-            background-color: #2c3e50;
-            color: #ffffff;
-            margin-top: 30px;
-        }
-        .back-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #ffffff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-        .back-button:hover {
-            background-color: #0056b3; /* 更深的藍色 */
-        }
-        /* 左上角 logo */
-.logo {
-    position: absolute;   /* 固定在頁面左上角 */
-    top: 15px;
-    left: 15px;
-    width: 60px;
-    animation: floatLogo 3s ease-in-out infinite; /* 動態效果 */
+<style>
+/* ===== 基本設定 ===== */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    background-image: url('https://github.com/Sethjesus/Photo/blob/main/sky1.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #0f172a;
+    padding-bottom: 120px; /* 避免浮動按鈕遮內容 */
+}
+main { flex: 1; }
+
+/* ===== 呼吸 Logo ===== */
+.breathing-logo {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    width: 64px;
+    z-index: 999;
+    animation: breathe 4.2s ease-in-out infinite;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,.35));
+}
+@keyframes breathe {
+    0%   { transform: scale(1); opacity: .95; }
+    50%  { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(1); opacity: .95; }
+}
+@media (max-width: 768px) {
+    .breathing-logo { width: 52px; }
 }
 
-@keyframes floatLogo {
-    0% { transform: scale(1) translateY(0px); }
-    50% { transform: scale(1.1) translateY(-5px); }
-    100% { transform: scale(1) translateY(0px); }
+/* ===== 標題 ===== */
+h1 {
+    text-align: center;
+    margin: 24px 0 16px;
+    font-size: 48px;
+    color: #b3ff00;
+    font-weight: 800;
+    text-shadow: 4px 4px 8px rgba(0,0,0,.9);
 }
 
-    </style>
+/* ===== 容器 ===== */
+.wrap {
+    width: min(1200px, 94vw);
+    margin: 0 auto 30px;
+}
+
+/* ===== 表格（桌機） ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,.85);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0,0,0,.18);
+}
+th {
+    background: linear-gradient(0deg, #0b6bff, #084fbe);
+    color: #fff;
+    text-align: left;
+    padding: 14px;
+    font-size: 18px;
+}
+td {
+    vertical-align: top;
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+tr:last-child td { border-bottom: none; }
+
+td.item-col {
+    width: 34%;
+    font-size: 18px;
+    font-weight: 800;
+}
+td.content-col {
+    width: 66%;
+    line-height: 1.9;
+}
+
+/* ===== 內容清單 ===== */
+.content-col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.content-col li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+.label {
+    min-width: 28px;
+    font-weight: 800;
+}
+.primary { font-weight: 800; color: #0b5ed7; }
+.secondary { color: #374151; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== 進度條 ===== */
+.progress-bar {
+    height: 14px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.progress-fill {
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+.progress-text {
+    margin-top: 6px;
+    font-weight: 800;
+    color: #166534;
+}
+
+/* ===== 手機卡片 ===== */
+.mobile-card { display: none; }
+
+/* ===== 手機版切換卡片 ===== */
+@media (max-width: 768px) {
+    table, thead, tbody, tr, th, td {
+        display: block;
+        width: 100%;
+    }
+    thead { display: none; }
+
+    tr {
+        margin-bottom: 18px;
+        background: rgba(255,255,255,.9);
+        border-radius: 18px;
+        box-shadow: 0 14px 30px rgba(0,0,0,.18);
+    }
+
+    td.item-col { display: none; }
+    td.content-col { padding: 0; }
+
+    .desktop-only { display: none; }
+    .mobile-card {
+        display: block;
+        padding: 16px;
+    }
+    .card-title {
+        font-size: 18px;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 18px;
+    background: #2c3e50;
+    color: #fff;
+}
+
+/* 🌱 浮動回首頁（減碳偏綠） */
+.float-home-btn{
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+
+    width: 64px;
+    height: 72px;
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    color: #ecfdf5;
+    text-decoration: none;
+    font-weight: 700;
+
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    box-shadow: 0 14px 30px rgba(22,163,74,.45);
+
+    z-index: 9999;
+    transition: transform .2s ease,
+                box-shadow .2s ease,
+                filter .2s ease;
+}
+.float-home-btn .icon{
+    font-size: 24px;
+    line-height: 1;
+}
+.float-home-btn .label{
+    font-size: 12px;
+    line-height: 1;
+}
+.float-home-btn:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(22,163,74,.55);
+    filter: brightness(1.08);
+}
+@media (max-width: 768px){
+    .float-home-btn{
+        width: 56px;
+        height: 64px;
+        right: 16px;
+        bottom: 16px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1><img src="https://github.com/Sethjesus/Photo/blob/main/UDM%20New%20Logo.jpg?raw=true" 
-     alt="公司Logo" class="logo"></h1>
-    <h1>低碳化/減碳</h1>
-    <div class="container mt-5">
-        <table id="data-table">
-            <thead>
-                <tr>
-                    <th class="item-col highlight">項目</th>
-                    <th class="content-col highlight">內容</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="item-col highlight">2.1 陽光空氣水減碳方案</td>
-                    <td class="content-col highlight">
-                        <ul>
-                            <li><a href="https://sethjesus.github.io/Wireless/Wireless.html">A. 無線能耗足跡管理</a></li>
-                            <li><a href="https://sethjesus.github.io/Wired/Wired.html">B. 有線能耗足跡管理</a></li>
-                            C. 冷氣冰水主機節能管理(變頻/類變頻)<br>
-                            D. 智慧空氣監測管理<br>
-                            E. 智慧水表管理
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="item-col highlight">2.2 減碳效益30% (3年)</td>
-                    <td class="content-col highlight">
-                        <ul>
-                            
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="item-col highlight">2.3 減碳方法 - 管理科學實質減碳</td>
-                    <td class="content-col highlight">
-                        <ul>
-                            A. EMS能耗數據整理與歸納分析
-                            <br>
-                            B. 3+3減碳
-                        </ul>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td class="item-col highlight">2.4 AIOT能耗足跡工具</td>
-                    <td class="content-col highlight">
-                        <ul>
-                            
-                            A. 能耗熱點盤查極感測工具安裝使用
+<img src="https://github.com/Sethjesus/Photo/blob/main/UDM%20New%20Logo.jpg?raw=true"
+     alt="UDM ESG Logo"
+     class="breathing-logo">
 
-                        </ul>
-                    </td>                </tr>
-                <tr>
-                    <td class="item-col highlight">2.5 低碳化能耗管理EMS</td>
-                    <td class="content-col highlight">
-                        <ul>
-                            <a href="https://1drv.ms/b/c/8ef63fdd92f9370f/EfC4Egw8MtNFjyD6rkQxXDEBlSMzgPeECjZdLQjZP6izjg?e=whBBkN" target="_blank">A. EMS電力能耗/水量/空氣品質管理平台服務</a>
-                            
-                        </ul>
-                    </td>
-                </tr>
+<main>
+<h1>低碳化／減碳</h1>
 
+<div class="wrap">
+<table>
+<thead>
+<tr><th>項目</th><th>內容</th></tr>
+</thead>
 
-                <tr>
-                    <td class="item-col highlight">2.6 政府低碳化補助申請</td>
-                    <td class="content-col highlight">
-                        <ul>
-                            A. 產發署低碳化補助<br>
-                            B. 商業發展署商業服務業智慧減碳補助<br>
-                            C. 環境部<br>
-                            D. 教育部智慧化氣候友善校園
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="item-col highlight">2.7 合作夥伴</td>
-                    <td class="content-col highlight">
-                        <ul>
-                            A. 低碳化方案合作夥伴<br>
-                            <li><a href="https://sethjesus.github.io/Ptrade/Ptrade.html">B. 其他周邊設備服務(P-Trade)</a></li>
-                            C. 客製化系統整合服務
+<tbody>
 
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <footer>
-        <a href="https://jpesg.netlify.app/" class="back-button">回首頁</a>
-        © 2026 由景煬低碳管理方案團隊製作
-    </footer>
+<tr>
+<td class="item-col">2.1 陽光空氣水減碳方案</td>
+<td class="content-col">
+<ul class="desktop-only">
+<li class="primary"><span class="label">A.</span><a href="https://sethjesus.github.io/Wireless/Wireless.html">無線能耗足跡管理</a></li>
+<li class="primary"><span class="label">B.</span><a href="https://sethjesus.github.io/Wired/Wired.html">有線能耗足跡管理</a></li>
+<li class="secondary"><span class="label">C.</span>冷氣冰水主機節能管理</li>
+<li class="secondary"><span class="label">D.</span>智慧空氣監測管理</li>
+<li class="secondary"><span class="label">E.</span>智慧水表管理</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.2 減碳效益 30%（3 年）</td>
+<td class="content-col">
+<div class="progress-bar"><div class="progress-fill"></div></div>
+<div class="progress-text">3 年累積減碳效益：30%</div>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.3 減碳方法</td>
+<td class="content-col">
+<ul>
+<li class="secondary"><span class="label">A.</span>EMS 能耗數據整理與歸納分析</li>
+<li class="secondary"><span class="label">B.</span>3＋3 減碳</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.4 AIoT 能耗足跡工具</td>
+<td class="content-col">
+<ul>
+<li class="secondary"><span class="label">A.</span>能耗熱點盤查感測工具</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.5 低碳化能耗管理 EMS</td>
+<td class="content-col">
+<ul>
+<li class="primary"><span class="label">A.</span>
+<a href="https://1drv.ms/b/c/8ef63fdd92f9370f/EfC4Egw8MtNFjyD6rkQxXDEBlSMzgPeECjZdLQjZP6izjg?e=whBBkN" target="_blank">
+EMS 電力／水量／空氣品質管理平台
+</a>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.6 政府低碳化補助</td>
+<td class="content-col">
+<ul>
+<li class="secondary">產發署低碳化補助</li>
+<li class="secondary">商業發展署智慧減碳補助</li>
+<li class="secondary">環境部低碳轉型專案</li>
+<li class="secondary">教育部氣候友善校園</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.7 合作夥伴</td>
+<td class="content-col">
+<ul>
+<li class="secondary">低碳化方案合作夥伴</li>
+<li class="primary">
+<a href="https://sethjesus.github.io/Ptrade/Ptrade.html">其他周邊設備服務（P-Trade）</a>
+</li>
+<li class="secondary">客製化系統整合服務</li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</main>
+
+<!-- 🏠 浮動回首頁 -->
+<a href="https://jpesg.netlify.app/" class="float-home-btn" aria-label="回首頁">
+  <span class="icon">🏠</span>
+  <span class="label">回首頁</span>
+</a>
+
+<footer>
+© 2026 景煬低碳管理方案團隊
+</footer>
+
 </body>
 </html>
