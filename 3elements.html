@@ -1,290 +1,316 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>碳盤查整合流程｜低碳化減碳方案</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>低碳化／減碳方案</title>
 
 <style>
-/* ===============================
-   核心鎖定：禁止水平滑動
-================================ */
+/* ===== 全站主色定義（統一藍） ===== */
 :root{
   --home-main: #0b6bff;
   --home-sub:  #00c6ff;
 }
 
+/* ===== 基本設定 ===== */
 html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden; 
-  position: relative;
-  min-height: 100vh;
+    height: 100%;
+    margin: 0;
 }
-
 body {
-  display: flex;
-  flex-direction: column;
-  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  color: #0f172a;
-  background: url('https://pub-531c96b02ed745e0bbfd0e96bfde8518.r2.dev/inventory.png') center/cover fixed;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    background-image: url('https://github.com/Sethjesus/Photo/blob/main/sky1.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #0f172a;
+    padding-bottom: 120px;
+}
+main { flex: 1; }
+
+/* ===== 呼吸 Logo ===== */
+.breathing-logo {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    width: 64px;
+    z-index: 999;
+    animation: breathe 4.2s ease-in-out infinite;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,.35));
+}
+@keyframes breathe {
+    0% { transform: scale(1); opacity: .95; }
+    50% { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(1); opacity: .95; }
+}
+@media (max-width: 768px) {
+    .breathing-logo { width: 52px; }
 }
 
-main { flex: 1; width: 100%; box-sizing: border-box; }
+/* ===== 標題 ===== */
+h1 {
+    text-align: center;
+    margin: 24px 0 16px;
+    font-size: 48px;
+    color: #b3ff00;
+    font-weight: 800;
+    text-shadow: 4px 4px 8px rgba(0,0,0,.9);
+}
 
-/* ===============================
-   回首頁按鈕 (鎖定視窗右下)
-================================ */
-.float-home-btn {
+/* ===== 容器 ===== */
+.wrap {
+    width: min(1200px, 94vw);
+    margin: 0 auto 30px;
+}
+
+/* ===== 表格 ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,.85);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0,0,0,.18);
+}
+th {
+    background: linear-gradient(0deg, #0b6bff, #084fbe);
+    color: #fff;
+    text-align: left;
+    padding: 14px;
+    font-size: 18px;
+}
+td {
+    vertical-align: top;
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+tr:last-child td { border-bottom: none; }
+
+td.item-col {
+    width: 34%;
+    font-size: 18px;
+    font-weight: 800;
+}
+td.content-col {
+    width: 66%;
+    line-height: 1.9;
+}
+
+/* ===== 清單 ===== */
+.content-col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.content-col li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+.label {
+    min-width: 28px;
+    font-weight: 800;
+}
+.primary { font-weight: 800; color: #0b5ed7; }
+.secondary { color: #374151; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== 進度條 ===== */
+.progress-bar {
+    height: 14px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.progress-fill {
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+.progress-text {
+    margin-top: 6px;
+    font-weight: 800;
+    color: #166534;
+}
+
+/* ===== 手機版 ===== */
+@media (max-width: 768px) {
+    table, thead, tbody, tr, th, td {
+        display: block;
+        width: 100%;
+    }
+    thead { display: none; }
+    tr {
+        margin-bottom: 18px;
+        background: rgba(255,255,255,.9);
+        border-radius: 18px;
+        box-shadow: 0 14px 30px rgba(0,0,0,.18);
+    }
+    td.item-col { display: none; }
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 18px;
+    background: #2c3e50;
+    color: #fff;
+}
+
+/* ===== 統一藍色浮動回首頁 ===== */
+.float-home-btn{
     position: fixed;
-    right: 18px;
+    right: 22px;
     bottom: 22px;
+
     width: 64px;
     height: 72px;
     border-radius: 18px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 4px;
+
     color: #fff;
     text-decoration: none;
     font-weight: 700;
+
     background: linear-gradient(135deg, var(--home-main), var(--home-sub));
     box-shadow: 0 14px 30px rgba(11,107,255,.45);
-    z-index: 99999;
+
+    z-index: 9999;
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
-.float-home-btn .icon { font-size: 24px; }
-.float-home-btn .label { font-size: 12px; }
-
-/* ===============================
-   標題與 Logo
-================================ */
-h1 {
-  text-align: center;
-  color: #b3ff00;
-  margin: 28px 0 12px;
-  font-size: clamp(2rem, 8vw, 3rem);
-  font-weight: 800;
-  text-shadow: 4px 4px 8px rgba(0,0,0,.9);
+.float-home-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(11,107,255,.55);
+    filter: brightness(1.06);
 }
-.breathing-logo {
-  position: fixed;
-  top: 14px; left: 14px; width: 60px; z-index: 999;
-  animation: breathe 4.2s ease-in-out infinite;
-  filter: drop-shadow(0 6px 16px rgba(0,0,0,.35));
-  border-radius: 8px;
+.float-home-btn .icon{ font-size:24px }
+.float-home-btn .label{ font-size:12px }
+
+@media (max-width:768px){
+    .float-home-btn{
+        width:56px;
+        height:64px;
+        right:16px;
+        bottom:16px;
+    }
 }
-@keyframes breathe { 0%, 100% { transform: scale(1); opacity: .95; } 50% { transform: scale(1.08); opacity: 1; } }
-
-/* ===============================
-   表格與區塊樣式 (全內容保留)
-================================ */
-#explanation, .wrap { width: 94vw; max-width: 1200px; margin: 32px auto; box-sizing: border-box; }
-#explanation { padding: 32px; background: rgba(255,255,255,.9); border-radius: 18px; line-height: 2.1; box-shadow: 0 18px 40px rgba(0,0,0,0.18); font-size: 1.3rem; }
-
-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,.85); border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.18); margin-bottom: 30px; }
-th { background: linear-gradient(0deg, #0b6bff, #084fbe); color: #fff; text-align: left; padding: 14px 20px; font-size: 20px; }
-td { vertical-align: top; padding: 22px; border-bottom: 1px solid rgba(0,0,0,.1); }
-
-td.item-col { width: 30%; font-size: 20px; font-weight: 800; color: #0b5ed7; background: rgba(255,255,255,0.5); }
-td.content-col { width: 70%; line-height: 2.0; font-size: 18px; }
-
-/* 政策卡片與標籤 */
-.stage-card { background: white; border-radius: 16px; padding: 16px 20px; margin-bottom: 18px; border: 1px solid rgba(11,107,255,0.2); }
-.stage-title { font-size: 1.25rem; font-weight: 800; color: #0b6bff; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-.stage-detail { font-size: 1.1rem; padding-left: 18px; border-left: 3px solid #00c6ff; margin: 12px 0; }
-.stage-fund { background: #f0f7ff; padding: 12px 16px; border-radius: 14px; font-weight: 600; color: #084fbe; }
-.policy-tag { display: inline-block; background: #0b6bff; color: white; padding: 4px 16px; border-radius: 40px; font-size: 1rem; margin-right: 12px; margin-bottom: 6px; }
-
-/* 進度條文字改白色 */
-.ai-stage-labels { display: flex; justify-content: space-between; font-weight: 800; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 4px; }
-.progress-bar { height: 18px; background: #e5e7eb; border-radius: 999px; overflow: hidden; margin: 10px 0; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, #0b6bff, #22c55e); }
-
-/* ===============================
-   手機版 RWD 優化
-================================ */
-@media (max-width: 900px) {
-  #flowchart-container { display: none; }
-  .mobile-flow { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 12px; margin: 24px 0; }
-  .flow-card { width: 90%; padding: 16px; border-radius: 14px; color: #fff; font-size: 18px; font-weight: 700; text-align: center; }
-  
-  table, thead, tbody, tr, th, td { display: block; width: 100% !important; }
-  thead { display: none; }
-  tbody tr { margin-bottom: 24px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; }
-  td.item-col { background: linear-gradient(135deg, #0b6bff, #084fbe); color: white !important; font-size: 1.3rem !important; padding: 18px; text-align: center; }
-  td.content-col { padding: 22px; font-size: 17px; }
-  td img { width: 100px !important; margin: 6px !important; }
-}
-
-.blue { background: #1f77b4; } .red { background: #d62728; } .orange { background: #ff7f0e; } .green { background: #2ca02c; }
 </style>
 </head>
+
 <body>
 
-<img src="https://pub-531c96b02ed745e0bbfd0e96bfde8518.r2.dev/UDM%20New%20Logo.jpg" class="breathing-logo" alt="Logo">
+<img src="https://github.com/Sethjesus/Photo/blob/main/UDM%20New%20Logo.jpg?raw=true"
+     alt="UDM ESG Logo"
+     class="breathing-logo">
 
-<a href="https://jpesg.netlify.app" class="float-home-btn">
+<main>
+<h1>低碳化／減碳</h1>
+
+<div class="wrap">
+<table>
+<thead>
+<tr><th>項目</th><th>內容</th></tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="item-col">2.1 陽光空氣水減碳方案</td>
+<td class="content-col">
+<ul class="desktop-only">
+<li class="primary"><span class="label">A.</span><a href="https://sethjesus.github.io/Wireless/Wireless.html">無線能耗足跡管理</a></li>
+<li class="primary"><span class="label">B.</span><a href="https://sethjesus.github.io/Wired/Wired.html">有線能耗足跡管理</a></li>
+<li class="secondary"><span class="label">C.</span>冷氣冰水主機節能管理</li>
+<li class="secondary"><span class="label">D.</span>智慧空氣監測管理</li>
+<li class="secondary"><span class="label">E.</span>智慧水表管理</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.2 減碳效益 30%（3 年）</td>
+<td class="content-col">
+<div class="progress-bar"><div class="progress-fill"></div></div>
+<div class="progress-text">3 年累積減碳效益：30%</div>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.3 減碳方法</td>
+<td class="content-col">
+<ul>
+<li class="secondary"><span class="label">A.</span>EMS 能耗數據整理與歸納分析</li>
+<li class="secondary"><span class="label">B.</span>3＋3 減碳</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.4 AIoT 能耗足跡工具</td>
+<td class="content-col">
+<ul>
+<li class="secondary"><span class="label">A.</span>能耗熱點盤查感測工具</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.5 低碳化能耗管理 EMS</td>
+<td class="content-col">
+<ul>
+<li class="primary"><span class="label">A.</span>
+<a href="https://1drv.ms/b/c/8ef63fdd92f9370f/EfC4Egw8MtNFjyD6rkQxXDEBlSMzgPeECjZdLQjZP6izjg?e=whBBkN" target="_blank">
+EMS 電力／水量／空氣品質管理平台
+</a>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.6 政府低碳化補助</td>
+<td class="content-col">
+<ul>
+<li class="secondary"><span class="label">A.產發署低碳化補助</li>
+<li class="secondary"><span class="label">B.商業發展署智慧減碳補助</li>
+<li class="secondary"><span class="label">C.環境部低碳轉型專案</li>
+<li class="secondary"><span class="label">D.教育部氣候友善校園</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td class="item-col">2.7 合作夥伴</td>
+<td class="content-col">
+<ul>
+<li class="secondary"><span class="label">A.低碳化方案合作夥伴</li>
+<li class="primary">
+<a href="https://sethjesus.github.io/Ptrade/Ptrade.html"><span class="label">B.其他周邊設備服務（P-Trade）</a>
+</li>
+<li class="secondary"><span class="label">C.客製化系統整合服務</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+
+<a href="https://jpesg.netlify.app/" class="float-home-btn" aria-label="回首頁">
   <span class="icon">🏠</span>
   <span class="label">回首頁</span>
 </a>
 
-<main>
-  <h1>碳盤查流程</h1>
-
-  <div id="flowchart-container" style="text-align: center; padding: 20px;">
-    <svg id="flowchart" width="900" height="300" viewBox="0 0 900 300" style="display:inline-block;"></svg>
-  </div>
-
-  <div class="mobile-flow" style="display:none;">
-    <div class="flow-card blue">1.1 諮詢輔導</div>
-    <div class="flow-card red">1.2 免費可行性評估</div>
-    <div class="flow-card orange">1.3 企業自主碳盤查</div>
-    <div class="flow-card green">1.4 政府補助碳盤查 (16+4)</div>
-  </div>
-
-  <div id="explanation">
-    <h2 style="text-align:center; margin-top:0;">流程說明</h2>
-    <p>本流程由諮詢輔導開始，經免費可行性評估後，企業可同時進行自主碳盤查或申請政府補助碳盤查（16+4），協助企業完成低碳轉型與補助申請。</p>
-  </div>
-
-  <div class="wrap">
-    <h2>碳盤查項目</h2>
-    <table>
-      <tbody>
-        <tr>
-          <td class="item-col">1.1 諮詢輔導</td>
-          <td class="content-col">
-            ● 企業自主碳盤查諮詢輔導<br>
-            ● 低碳化／減碳方案建議
-          </td>
-        </tr>
-        <tr>
-          <td class="item-col">1.2 免費可行性評估</td>
-          <td class="content-col">
-            ● 企業低碳化可行性評估<br>
-            ● 補助申請可行性評估
-          </td>
-        </tr>
-        <tr>
-          <td class="item-col">1.3 企業自主碳盤查</td>
-          <td class="content-col">
-            AI 碳盤查管理平台與工具：<br>
-            <div style="margin: 12px 0; display: flex; flex-wrap: wrap; gap: 8px;">
-              <img src="https://pub-531c96b02ed745e0bbfd0e96bfde8518.r2.dev/Carbon1.jpg" style="width:130px; border-radius:12px;">
-              <img src="https://pub-531c96b02ed745e0bbfd0e96bfde8518.r2.dev/Carbon2.jpg" style="width:130px; border-radius:12px;">
-              <img src="https://pub-531c96b02ed745e0bbfd0e96bfde8518.r2.dev/Carbon3.jpg" style="width:130px; border-radius:12px;">
-              <img src="https://pub-531c96b02ed745e0bbfd0e96bfde8518.r2.dev/Carbon4.jpg" style="width:130px; border-radius:12px;">
-              <img src="https://pub-531c96b02ed745e0bbfd0e96bfde8518.r2.dev/Carbon5.jpg" style="width:130px; border-radius:12px;">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="item-col">1.4 政府補助 (16+4)</td>
-          <td class="content-col">
-            ● 經濟部低碳化診斷輔導<br>
-            ● <strong>政府補助 16 萬</strong> + 企業自籌 4 萬<br>
-            <img src="https://pub-531c96b02ed745e0bbfd0e96bfde8518.r2.dev/Carbon7.jpg" style="width:140px; margin-top:10px; border-radius:12px;">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="wrap">
-    <h2>🌟 政府雙軸轉型政策（AI數位轉型）</h2>
-    <table>
-      <tbody>
-        <tr>
-          <td class="item-col">🤖 措施1：AI數位轉型 (製造業)</td>
-          <td class="content-col">
-            <div class="stage-card">
-              <div class="stage-title"><span>🔹</span> 階段一：AI診斷與輔導</div>
-              <div class="stage-detail">政府出 19萬 + 企業自付 1萬 (合計20萬)</div>
-              <div class="stage-fund">📌 合計20萬診斷輔導經費，企業僅負擔5%</div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-title"><span>🔸</span> 階段二：AI應用導入</div>
-              <div class="stage-detail">⚙️ 工具導入最高補助10萬 | 人才培訓最高補助12萬</div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-title"><span>🔺</span> 階段三：研發轉型補助</div>
-              <div class="stage-detail">個案最高 500萬 | 產業聯盟最高 4,000萬</div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="item-col">🏬 措施1：AI數位轉型 (服務業)</td>
-          <td class="content-col">
-            <div class="stage-card">
-              <div class="stage-title"><span>①</span> 階段一：AI需求診斷</div>
-              <div class="stage-detail">線上診斷評估業者導入AI現況，引介資源</div>
-            </div>
-            <div class="stage-card">
-              <div class="stage-title"><span>②</span> 階段二：AI轉型補助</div>
-              <div class="stage-detail">個案最高 300萬 | 整合型最高 2,000萬</div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div style="margin: 30px auto; max-width:600px;">
-      <div class="ai-stage-labels"><span>AI診斷</span><span>應用導入</span><span>研發轉型</span></div>
-      <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
-      <p style="text-align:center; color:#fff; font-weight:800; text-shadow:1px 1px 3px #000;">三階段逐步升級，政府補助挹注</p>
-    </div>
-  </div>
-</main>
-
-<footer style="text-align:center; padding:25px; background:#2c3e50; color:#fff;">
-  © 2026 景煬低碳管理方案團隊製作
+<footer>
+© 2026 景煬低碳管理方案團隊製作
 </footer>
-
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script>
-// 控制手機版顯示
-function checkMobile() {
-  const mFlow = document.querySelector('.mobile-flow');
-  if(window.innerWidth <= 900) mFlow.style.display = 'flex';
-  else mFlow.style.display = 'none';
-}
-window.onresize = checkMobile; checkMobile();
-
-// D3 繪圖邏輯 (恢復連線與箭頭)
-const svg = d3.select("#flowchart");
-// 1. 定義箭頭標記
-svg.append("defs").append("marker")
-  .attr("id","arrow").attr("viewBox","0 -5 10 10")
-  .attr("refX",10).attr("refY",0)
-  .attr("markerWidth",6).attr("markerHeight",6)
-  .attr("orient","auto")
-  .append("path").attr("d","M0,-5L10,0L0,5").attr("fill","#007bff");
-
-const nodes = [
-  {x:120, y:150, text:"1.1 諮詢輔導", color:"#1f77b4"},
-  {x:360, y:150, text:"1.2 可行性評估", color:"#d62728"},
-  {x:620, y:90,  text:"1.3 自主碳盤查", color:"#ff7f0e"},
-  {x:620, y:210, text:"1.4 補助碳盤查", color:"#2ca02c"}
-];
-
-// 2. 繪製連線
-const links = [[nodes[0], nodes[1]], [nodes[1], nodes[2]], [nodes[1], nodes[3]]];
-links.forEach(l => {
-  svg.append("line")
-    .attr("x1", l[0].x+90).attr("y1", l[0].y)
-    .attr("x2", l[1].x-90).attr("y2", l[1].y)
-    .attr("stroke","#007bff").attr("stroke-width",2)
-    .attr("marker-end","url(#arrow)");
-});
-
-// 3. 繪製節點
-nodes.forEach(n => {
-  svg.append("rect").attr("x", n.x-90).attr("y", n.y-30).attr("width", 180).attr("height", 60).attr("rx", 12).attr("fill", n.color);
-  svg.append("text").attr("x", n.x).attr("y", n.y+6).attr("text-anchor","middle").attr("fill","#fff").attr("font-size","16px").attr("font-weight","bold").text(n.text);
-});
-</script>
 
 </body>
 </html>
